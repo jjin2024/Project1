@@ -17,7 +17,7 @@ export default function Home() {
       <div className="home-scroll">
         <header className="home-header">
           <div className="home-topbar">
-            <span className="home-brand">무인</span>
+            <span className="home-brand">쉼표</span>
             <button className="home-settings">⚙</button>
           </div>
           <h1 className="home-title">오늘 어디로<br />떠나볼까요?</h1>

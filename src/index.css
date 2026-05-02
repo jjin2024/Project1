@@ -4,8 +4,8 @@
   --green-light: #4a7c5f;
   --green-pale:  #c8ddd2;
   --green-tint:  rgba(42, 90, 61, 0.06);
-  --cream:       #f7f4ef;
-  --cream-dark:  #ede9e2;
+  --cream:       #f9f8f2;
+  --cream-dark:  #efeee8;
   --white:       #ffffff;
   --text-primary:   #1a1a1a;
   --text-secondary: #666666;
@@ -33,7 +33,7 @@ html, body, #root {
 }
 
 body {
-  background: #cdc8bf;
+  background: #f9f8f2;
   display: flex;
   justify-content: center;
   align-items: center;

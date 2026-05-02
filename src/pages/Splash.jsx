@@ -12,9 +12,9 @@ export default function Splash() {
 
   return (
     <div className="splash">
-      <div className="splash-kanji">無</div>
+      <div className="splash-kanji">,</div>
       <div className="splash-center">
-        <h1 className="splash-title">무인</h1>
+        <h1 className="splash-title">쉼표</h1>
         <p className="splash-sub">고르지 않아도 되는 여행</p>
       </div>
       <div className="splash-dots">
