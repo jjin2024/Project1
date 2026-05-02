@@ -5,8 +5,8 @@ import './BottomNav.css'
 const ITEMS = [
   { id: 'home',    label: '홈',      icon: '⌂',  path: '/home' },
   { id: 'pindraw', label: '쉼표뽑기', icon: '🎴', path: '/pindraw' },
+  { id: 'map',     label: '지도',     icon: '🗺', path: '/map' },
   { id: 'diary',   label: '다이어리', icon: '📖', path: '/diary' },
-  { id: 'me',      label: '내 정보',  icon: '◎',  path: '/home' },
 ]
 
 export default function BottomNav() {
@@ -16,7 +16,7 @@ export default function BottomNav() {
   return (
     <nav className="bnav">
       {ITEMS.map(item => {
-        const isActive = pathname === item.path && item.id !== 'me'
+        const isActive = pathname === item.path
         return (
           <button
             key={item.id}
