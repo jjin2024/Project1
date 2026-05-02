@@ -1,0 +1,73 @@
+.splash {
+  width: 100%;
+  height: 100%;
+  background: var(--green-deep);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.splash-kanji {
+  position: absolute;
+  font-family: var(--font-serif);
+  font-size: 400px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.04);
+  user-select: none;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -53%);
+  line-height: 1;
+  letter-spacing: -12px;
+}
+
+.splash-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 1;
+}
+
+.splash-title {
+  font-family: var(--font-serif);
+  font-size: 88px;
+  font-weight: 900;
+  color: var(--cream);
+  letter-spacing: 14px;
+  line-height: 1;
+}
+
+.splash-sub {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(247, 244, 239, 0.45);
+  letter-spacing: 3.5px;
+}
+
+.splash-dots {
+  position: absolute;
+  bottom: 54px;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.splash-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--r-full);
+  background: rgba(247, 244, 239, 0.2);
+  transition: all 0.4s ease;
+  display: block;
+}
+
+.splash-dot.on {
+  width: 22px;
+  background: rgba(247, 244, 239, 0.65);
+}

@@ -1,0 +1,142 @@
+.ob {
+  width: 100%;
+  height: 100%;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  padding: 58px 22px 42px;
+  gap: 28px;
+}
+
+.ob-top {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ob-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green-light);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.ob-title {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.ob-hint {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Vibe Grid */
+.ob-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+}
+
+.vibe-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 18px;
+  gap: 6px;
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+  transition: transform 0.15s ease, border-color 0.15s, background 0.15s;
+}
+
+.vibe-card:active { transform: scale(0.96); }
+
+.vibe-card.on {
+  border-color: var(--green-light);
+  background: rgba(74, 124, 95, 0.06);
+}
+
+.vibe-check {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+  background: var(--green-light);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.vibe-emoji { font-size: 30px; }
+
+.vibe-label {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.vibe-desc {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Footer */
+.ob-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.ob-cta {
+  width: 100%;
+  height: 52px;
+  background: var(--green-deep);
+  color: var(--cream);
+  border: none;
+  border-radius: var(--r-md);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.ob-cta:active {
+  transform: scale(0.98);
+  background: var(--green-mid);
+}
+
+.ob-skip {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 4px 8px;
+  transition: color 0.15s;
+}
+
+.ob-skip:active { color: var(--text-secondary); }
