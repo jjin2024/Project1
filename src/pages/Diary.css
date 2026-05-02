@@ -181,6 +181,14 @@
 }
 .diary-dl-all:active { transform: scale(0.98); }
 
+/* Thumb photo (list view) */
+.diary-thumb-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
 /* Detail View */
 .diary-back-btn {
   background: none;
@@ -251,6 +259,104 @@
   font-size: 15px;
   color: rgba(247, 244, 239, 0.88);
   line-height: 1.8;
+}
+
+/* Photo area */
+.detail-photo-wrap {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  height: 190px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.detail-photo-wrap:not(.has-photo):active { transform: scale(0.98); }
+
+.detail-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px 12px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.detail-photo-wrap.has-photo:hover .detail-photo-overlay,
+.detail-photo-wrap.has-photo:active .detail-photo-overlay {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.detail-photo-change {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: var(--r-full);
+  padding: 6px 12px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.detail-photo-remove {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  color: var(--white);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-photo-empty {
+  width: 100%;
+  height: 100%;
+  background: var(--cream-dark);
+  border: 2px dashed var(--border);
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.detail-photo-wrap:not(.has-photo):hover .detail-photo-empty {
+  background: rgba(74, 124, 95, 0.06);
+  border-color: var(--green-pale);
+}
+
+.detail-photo-ic { font-size: 32px; }
+
+.detail-photo-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.detail-photo-hint {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
 .detail-actions { display: flex; gap: 10px; }

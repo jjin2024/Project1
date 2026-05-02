@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import BottomNav from '../components/BottomNav'
 import './Diary.css'
@@ -29,7 +29,23 @@ const PINS = [
 
 export default function Diary() {
   const navigate = useNavigate()
-  const [sel, setSel] = useState(null)
+  const [sel, setSel]       = useState(null)
+  const [photos, setPhotos] = useState({})
+  const fileRef             = useRef(null)
+
+  const handlePhoto = e => {
+    const file = e.target.files[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = ev => setPhotos(p => ({ ...p, [sel]: ev.target.result }))
+    reader.readAsDataURL(file)
+    e.target.value = ''
+  }
+
+  const removePhoto = e => {
+    e.stopPropagation()
+    setPhotos(p => { const next = { ...p }; delete next[sel]; return next })
+  }
 
   if (sel) {
     const p = PINS.find(x => x.id === sel)
@@ -49,6 +65,42 @@ export default function Diary() {
             <div className="detail-rule" />
             <p className="detail-memo">{p.memo}</p>
           </div>
+
+          {/* 사진 영역 */}
+          <div
+            className={`detail-photo-wrap ${photos[sel] ? 'has-photo' : ''}`}
+            onClick={() => !photos[sel] && fileRef.current?.click()}
+          >
+            {photos[sel] ? (
+              <>
+                <img src={photos[sel]} alt="장소 사진" className="detail-photo-img" />
+                <div className="detail-photo-overlay">
+                  <button
+                    className="detail-photo-change"
+                    onClick={e => { e.stopPropagation(); fileRef.current?.click() }}
+                  >
+                    ✎ 사진 변경
+                  </button>
+                  <button className="detail-photo-remove" onClick={removePhoto}>
+                    ✕
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="detail-photo-empty">
+                <span className="detail-photo-ic">📷</span>
+                <p className="detail-photo-label">사진 추가하기</p>
+                <p className="detail-photo-hint">탭해서 갤러리에서 선택</p>
+              </div>
+            )}
+          </div>
+          <input
+            ref={fileRef}
+            type="file"
+            accept="image/*"
+            onChange={handlePhoto}
+            style={{ display: 'none' }}
+          />
 
           <div className="detail-actions">
             <button className="det-btn det-dl">⬇ 다운로드</button>
@@ -88,7 +140,12 @@ export default function Diary() {
         <div className="diary-list">
           {PINS.map(p => (
             <div key={p.id} className="diary-card" onClick={() => setSel(p.id)}>
-              <div className="diary-thumb" style={{ background: p.color }}>{p.emoji}</div>
+              <div className="diary-thumb" style={{ background: p.color }}>
+                {photos[p.id]
+                  ? <img src={photos[p.id]} alt="" className="diary-thumb-photo" />
+                  : p.emoji
+                }
+              </div>
               <div className="diary-info">
                 <p className="diary-name">{p.name}</p>
                 <p className="diary-meta">{p.region} · {p.date}</p>

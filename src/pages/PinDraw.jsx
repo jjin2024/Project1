@@ -10,6 +10,7 @@ const PLACES = [
     tags: ['🌿 자연', '🥾 트레킹'],
     desc: '기암절벽과 솔숲이 어우러진 청정 명산. 봉화의 비밀처럼 조용하다.',
     crowd: '매우 한적', dist: '대구에서 2시간 12분',
+    weather: { icon: '⛅', temp: '16°C', note: '구름 조금, 산 정상은 서늘해요' },
   },
   {
     id: 2, emoji: '🌊', color: '#243f35',
@@ -17,6 +18,7 @@ const PLACES = [
     tags: ['🌾 강변', '🚶 산책'],
     desc: '별빛 아래 강변을 따라 걷는 고요한 산책로. 영양의 어두운 밤이 선물이다.',
     crowd: '한적', dist: '대구에서 2시간 40분',
+    weather: { icon: '☀️', temp: '19°C', note: '맑고 쾌청해요, 산책하기 딱 좋아요' },
   },
   {
     id: 3, emoji: '🏞', color: '#1a3530',
@@ -24,6 +26,7 @@ const PLACES = [
     tags: ['💧 계곡', '🌲 드라이브'],
     desc: '36km의 기암절벽과 에메랄드 물빛. 말이 필요 없는 비경.',
     crowd: '보통', dist: '대구에서 3시간',
+    weather: { icon: '🌤', temp: '17°C', note: '맑은 오후, 물빛이 더 선명하게 보여요' },
   },
 ]
 
@@ -114,6 +117,10 @@ export default function PinDraw() {
             <h3 className="pd-name">{place.name}</h3>
             <p className="pd-region">📍 {place.region}</p>
             <p className="pd-desc">{place.desc}</p>
+            <div className="pd-weather">
+              <span className="pd-weather-badge">{place.weather.icon} {place.weather.temp}</span>
+              <span className="pd-weather-note">{place.weather.note}</span>
+            </div>
             <div className="pd-meta">
               <span className="pd-crowd"><span className="crowd-led" />{place.crowd}</span>
               <span className="pd-dist">🚗 {place.dist}</span>

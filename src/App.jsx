@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import PinDraw from './pages/PinDraw'
 import Diary from './pages/Diary'
 import Map from './pages/Map'
+import Search from './pages/Search'
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/pindraw"    element={<PinDraw />} />
           <Route path="/diary"      element={<Diary />} />
           <Route path="/map"        element={<Map />} />
+          <Route path="/search"     element={<Search />} />
           <Route path="*"           element={<Navigate to="/" replace />} />
         </Routes>
       </div>

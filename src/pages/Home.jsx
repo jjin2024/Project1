@@ -32,7 +32,7 @@ export default function Home() {
               <span className="cta-hint">지금 바로 출발 →</span>
             </div>
           </button>
-          <button className="cta cta-sub">
+          <button className="cta cta-sub" onClick={() => navigate('/search')}>
             <span className="cta-sub-icon">🔍</span>
             <div className="cta-body cta-body-sub">
               <span className="cta-sub-eyebrow">장소 검색</span>
